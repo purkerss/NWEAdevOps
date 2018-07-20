@@ -27,8 +27,7 @@ blogdb.get(posts, (err, row) => {
  }
         return row
         ? console.log(row.ID, row.Title, row.Body)
-        : console.log('No Blog posts found.');
-
+        : console.log('No Blog posts found.')
 });
 
                 res.send('Displaying all Blog posts. ')
