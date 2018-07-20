@@ -22,15 +22,15 @@ let blogdb = new sqlite3.Database('./blog.db', sqlite3.OPEN_READWRITE, (err) => 
 let posts = 'SELECT post_id ID, title Title, body Body FROM posts ORDER BY ID';
 
 blogdb.get(posts, (err, row) => {
-        if (err) {
+	if (err) {
                 return console.error(err.message);
  }
-        return row
-        ? console.log(row.ID, row.Title, row.Body)
-        : console.log('No Blog posts found.')
+        // return row
+        // ? console.log(row.ID, row.Title, row.Body)
+        // : console.log('No Blog posts found.')
+	res.send(row); 
 });
 
-                res.send('Displaying all Blog posts. ')
 })
         app.post('/post', function (req, res) {
 
