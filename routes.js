@@ -14,7 +14,7 @@ let blogdb = new sqlite3.Database('./blog.db', sqlite3.OPEN_READWRITE, (err) => 
 });
 
         app.get('/', function (req, res) {
-                res.send('Hello World!')
+                res.send("Welcome to the Blogpost app, to use the API you'll need to reach the /post or /posts endpoints.")
 })
         app.get('/posts', function (req, res) {
 
