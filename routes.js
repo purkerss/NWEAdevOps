@@ -31,13 +31,14 @@ let blogdb = new sqlite3.Database('./blog.db', sqlite3.OPEN_READWRITE, (err) => 
 
 })
         app.post('/post', function (req, res) {
-
-                blogdb.run("INSERT INTO posts(title, body) VALUES('Testing Title', 'Testing Body')", function(err) {
+	const blogTitle	= req.body.title.toString();
+	const blogBody	= req.body.body.toString();
+                blogdb.run('INSERT INTO posts(title, body) VALUES(?, ?)', [blogTitle, blogBody], function(err) {
 			if (err) {
       				return console.log(err.message)
 				res.send(err.message);
     }
-				res.send('Blog post received.')
+				res.send('Blog post received. ')
 });
 
                 console.log(req.body)
